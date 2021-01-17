@@ -2,7 +2,9 @@
 
 *   Projeto que vai retratar um lista de tarefas para o treinamento em reacjs.
 
-*   Nesse projeto em nodejs, vamos usar algumas dependencia como o express, pois não vamos usar o localStorage para armazenamento das informações e nem estamos usando banco de dados, apenas vai ser criado uma API RESTFULL.
+*   Nesse projeto em nodejs, vamos usar algumas dependencia como o express, pois não vamos usar o localStorage para armazenamento das informações e nem estamos usando banco de dados, apenas vai ser criado uma API RESTFULL que vai fazer todo o gerenciamento em memoria.
+
+*    Para executar a API digite no terminal (node index.js)
 
 <hr>
 
