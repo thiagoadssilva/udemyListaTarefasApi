@@ -5,7 +5,8 @@ const cors = require('cors');
 const { 
     listarTarefaId,
     listarTarefas,
-    cadastrarTarefa 
+    cadastrarTarefa,
+    atualizarTarefa 
 } = require('./controllers/gerenciador-tarefas');
 
 const app = express();
@@ -23,7 +24,7 @@ function funcaoNaoImplementada(req, res) {
 app.get('/gerenciador-tarefas', listarTarefas);
 app.get('/gerenciador-tarefas/:id', listarTarefaId);
 app.post('/gerenciador-tarefas', cadastrarTarefa);
-app.put('/gerenciador-tarefas/:id', funcaoNaoImplementada);
+app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 app.delete('/gerenciador-tarefas/:id', funcaoNaoImplementada);
 app.put('/gerenciador-tarefas/:id/concluir', funcaoNaoImplementada);
 
