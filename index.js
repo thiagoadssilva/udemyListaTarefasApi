@@ -6,7 +6,8 @@ const {
     listarTarefaId,
     listarTarefas,
     cadastrarTarefa,
-    atualizarTarefa 
+    atualizarTarefa,
+    removerTarefa 
 } = require('./controllers/gerenciador-tarefas');
 
 const app = express();
@@ -25,7 +26,7 @@ app.get('/gerenciador-tarefas', listarTarefas);
 app.get('/gerenciador-tarefas/:id', listarTarefaId);
 app.post('/gerenciador-tarefas', cadastrarTarefa);
 app.put('/gerenciador-tarefas/:id', atualizarTarefa);
-app.delete('/gerenciador-tarefas/:id', funcaoNaoImplementada);
+app.delete('/gerenciador-tarefas/:id', removerTarefa);
 app.put('/gerenciador-tarefas/:id/concluir', funcaoNaoImplementada);
 
 app.listen(port, () => console.log(`entrou ${port}`));
