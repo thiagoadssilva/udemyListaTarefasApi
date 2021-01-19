@@ -7,7 +7,8 @@ const {
     listarTarefas,
     cadastrarTarefa,
     atualizarTarefa,
-    removerTarefa 
+    removerTarefa,
+    concluirTarefa 
 } = require('./controllers/gerenciador-tarefas');
 
 const app = express();
@@ -18,15 +19,11 @@ app.use(cors());
 //- Midleware para trabalhar com resposta de arquivo do tipo JSON.
 app.use(bodyParser.json());
 
-function funcaoNaoImplementada(req, res) {
-    res.status(501).json({ erro: 'Função não implementada' });
-};
-
 app.get('/gerenciador-tarefas', listarTarefas);
 app.get('/gerenciador-tarefas/:id', listarTarefaId);
 app.post('/gerenciador-tarefas', cadastrarTarefa);
 app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 app.delete('/gerenciador-tarefas/:id', removerTarefa);
-app.put('/gerenciador-tarefas/:id/concluir', funcaoNaoImplementada);
+app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
 
 app.listen(port, () => console.log(`entrou ${port}`));
