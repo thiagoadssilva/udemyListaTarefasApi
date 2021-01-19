@@ -22,6 +22,8 @@
 
      yarn add uuid -- save
 
+     yarn add uuidv4 --save
+
 
 
 * Link para a instalação Express:
@@ -35,4 +37,7 @@
 
 * Link para a instalação Uuid:
 	* https://medium.com/better-programming/rehttps://www.npmjs.com/package/react-uuid
+
+* Link para a instalação Uuid:
+	* https://www.npmjs.com/package/uuidv4     
 <hr>
