@@ -1,4 +1,4 @@
-const uuidv4 = require('uuid');
+const { uuidv4 } = require('uuidv4');
 
 let tarefas = [
     { id: '1', nome: 'Thiago jose da silva', concluida: true },
@@ -31,10 +31,10 @@ function listarTarefas(req, res) {
         tarefasRetornar = tarefasRetornar.filter(t => t.nome.toLowerCase().indexOf(filtroTarefa.toLowerCase()) === 0);
     }
 
-    if(ordem === 'ASC'){
-        tarefasRetornar.sort((t1, t2) =>(t1.nome.toLowerCase() > t2.nome.toLowerCase()) ? 1 : -1);
-    }else if(ordem === 'DESC'){
-        tarefasRetornar.sort((t1, t2) =>(t1.nome.toLowerCase() < t2.nome.toLowerCase()) ? 1 : -1);
+    if (ordem === 'ASC') {
+        tarefasRetornar.sort((t1, t2) => (t1.nome.toLowerCase() > t2.nome.toLowerCase()) ? 1 : -1);
+    } else if (ordem === 'DESC') {
+        tarefasRetornar.sort((t1, t2) => (t1.nome.toLowerCase() < t2.nome.toLowerCase()) ? 1 : -1);
     }
 
     res.json({
@@ -44,7 +44,23 @@ function listarTarefas(req, res) {
     });
 }
 
+function cadastrarTarefa(req, res) {
+    if (!req.body['nome'] && !req.body['concluida']) {
+        res.status(400).json({ erro: 'Reuisição não encontrada' });
+    }
+
+    const tarefa = {
+        id: uuidv4,
+        nome: req.body['nome'],
+        concluida: req.body['concluida']
+    };
+
+    tarefas.push(tarefa);
+    res.json(tarefa);
+}
+
 module.exports = {
     listarTarefaId,
-    listarTarefas
+    listarTarefas,
+    cadastrarTarefa
 }
