@@ -1,4 +1,5 @@
-const { uuidv4 } = require('uuidv4');
+const { uuid } = require('uuidv4');
+
 
 let tarefas = [
     { id: '1', nome: 'Thiago jose da silva', concluida: true },
@@ -50,7 +51,7 @@ function cadastrarTarefa(req, res) {
     }
 
     const tarefa = {
-        id: uuidv4,
+        id: uuid(),
         nome: req.body['nome'],
         concluida: req.body['concluida']
     };
