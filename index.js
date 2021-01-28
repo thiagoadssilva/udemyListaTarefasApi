@@ -12,7 +12,7 @@ const {
 } = require('./controllers/gerenciador-tarefas');
 
 const app = express();
-const port = '3001';
+const port = '3002';
 
 //- Midleware que vai permitir que duas requisições aconteçam de urls diferentes.
 app.use(cors());
