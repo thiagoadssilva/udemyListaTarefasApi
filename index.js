@@ -26,4 +26,4 @@ app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 app.delete('/gerenciador-tarefas/:id', removerTarefa);
 app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
 
-app.listen(port, () => console.log(`entrou ${port}`));
+app.listen(process.env.PORT || port, () => console.log(`entrou ${port}`));
