@@ -2,14 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const { 
+const {
     listarTarefaId,
     listarTarefas,
     cadastrarTarefa,
     atualizarTarefa,
     removerTarefa,
-    concluirTarefa 
+    concluirTarefa
 } = require('./controllers/gerenciador-tarefas');
+
+const { 
+    finalizarCompra,
+    obterCidadePorEstado
+ } = require('./controllers/mini-ecommerce.js');
 
 const app = express();
 const port = '3002';
@@ -25,5 +30,8 @@ app.post('/gerenciador-tarefas', cadastrarTarefa);
 app.put('/gerenciador-tarefas/:id', atualizarTarefa);
 app.delete('/gerenciador-tarefas/:id', removerTarefa);
 app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
+
+app.post('/mini-ecommerce/checkout/finalizar-compra', finalizarCompra);
+app.get('/mini-ecommerce/estado/:siglaEstado/cidades', obterCidadePorEstado);
 
 app.listen(process.env.PORT || port, () => console.log(`entrou ${port}`));
